@@ -1,6 +1,8 @@
 # vmware-lab-work
 
-This project encompasses a terraform and ansible environment to set up Kafka and monitoring tools.
+This project encompasses a terraform and ansible environment to set up Kafka and monitoring tools. 
+
+Based on the fantastic work done by Chris Matta (@cjmatta)
 
 ## Prerequisites
 * Python 3
