@@ -1,0 +1,16 @@
+---
+- hosts: localhost
+  tasks:
+  - name: set hosts
+    set_fact: hostnames="['hosta', 'hostb', 'hostc']"
+  - name: set port
+    set_fact: port=8080
+  - name: set fact
+    set_fact: foo_item="{{ item }}:{{ port }}"
+    with_items: "{{ hostnames }}"
+    register: foo_result
+  - debug: var=foo_result
+  - name: make a list
+    set_fact: foo="{{ foo_result.results | map(attribute='ansible_facts.foo_item') | list }}"
+
+  - debug: var=hostvars[groups['tools'][0]]
